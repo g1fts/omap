@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+		body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap {height:100%; width: 100%;}
+		#control{width:100%;}
+	</style>
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=R0lg8GyKHQI6hUGCuS3OGGVNN3tWVAtN"></script>
+    <title>拱墅区教育地图 - 百度地图</title>
+</head>
+<body>
+    <div id="allmap"></div>
+
+    <script type="text/javascript">
+        // 百度地图API功能
+        var map = new BMap.Map("allmap");
+        map.centerAndZoom(new BMap.Point(120.151246,30.315539), 15);
+        map.enableScrollWheelZoom();
+    
+        
+        var polygon = new BMap.Polygon([
+            new BMap.Point(120.155022,30.293165),
+            new BMap.Point(120.156884,30.2935),
+            new BMap.Point(120.153424,30.297678),
+            new BMap.Point(120.149319,30.299261)
+        ], {strokeColor:"blue", strokeWeight:2, strokeOpacity:0.5});  //创建多边形
+        map.addOverlay(polygon);   //增加多边形
+
+        var pt = new BMap.Point(120.153529,30.296443);
+        var myIcon = new BMap.Icon("./images/maiyuqiao.png", new BMap.Size(30,30), {imageSize:new BMap.Size(30,30)});
+        var marker2 = new BMap.Marker(pt,{icon:myIcon});  // 创建标注
+        map.addOverlay(marker2);              // 将标注添加到地图中
+    </script>
+</body>
+</html>
